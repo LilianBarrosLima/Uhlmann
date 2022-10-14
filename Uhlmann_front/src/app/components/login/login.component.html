@@ -1,0 +1,19 @@
+<div class="widget">
+    <po-widget>
+        <div class="logo">
+            <img class="empresa" src="../../../assets/logo.PNG" alt="Logo da empresa">
+        </div>
+
+        <div class="login">
+            <po-login p-label="Usuário" [(ngModel)]="login"></po-login>
+        </div>
+
+        <div class="passwd">
+            <po-password p-label="Senha" [(ngModel)]="password" (keyup.enter)="logar()"></po-password>
+        </div>
+        
+        <div class="send">
+            <po-button class="btn-send" p-label="Entrar" (p-click)="logar()"></po-button>
+        </div>
+    </po-widget>
+</div>

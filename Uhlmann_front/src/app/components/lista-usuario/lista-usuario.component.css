@@ -1,0 +1,14 @@
+.po-menu {
+    --color-menu-background-color-menu: #3a76a752;
+    --color-menu-color-menu-item-text: #000000;
+    background: url('../../../assets/logomenu2.jpg');
+}
+
+.po-wrapper{
+    --color-page-background-color-page: #ffffff;
+}
+
+.po-table{
+    --color-table-color-header: #000000;
+    --color-table-box-shadow-header: #000000;
+}

@@ -1,0 +1,19 @@
+.po-menu {
+    --color-menu-background-color-menu: #3a76a752;
+    --color-menu-color-menu-item-text: #000000;
+    background: url('../../../assets/logomenu2.jpg');
+}
+
+.po-wrapper{
+    --color-page-background-color-page: #ffffff;
+}
+
+.confirmar{
+    --color-button-border-primary: black;
+}
+
+.salvar{
+    --color-button-background-color: white;
+    --color-button-color: black;
+    --color-button-border: black;
+}
