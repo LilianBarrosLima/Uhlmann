@@ -47,7 +47,7 @@ public class FormularioController{
         formularios.setUsuario(usuario);
         formularios.setFabricanteDePVC(dto.getFabricanteDePVC());
         formularios.setQuantidadeDoBlister(dto.getQuantidadeDoBlister());
-        formularios.setVelocidadeRPM(dto.setVelocidadeRPM());
+        formularios.setVelocidadeRPM(dto.getVelocidadeRPM());
         formularios.setSuperiorInferior1(dto.getSuperiorInferior1());
         formularios.setSuperiorInferior2(dto.getSuperiorInferior2());
         formularios.setSuperiorInferior3(dto.getSuperiorInferior3());
