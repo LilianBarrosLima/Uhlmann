@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.Column;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -46,6 +47,7 @@ public class FormularioController{
         formularios.setUsuario(usuario);
         formularios.setFabricanteDePVC(dto.getFabricanteDePVC());
         formularios.setQuantidadeDoBlister(dto.getQuantidadeDoBlister());
+        formularios.setVelocidadeRPM(dto.setVelocidadeRPM());
         formularios.setSuperiorInferior1(dto.getSuperiorInferior1());
         formularios.setSuperiorInferior2(dto.getSuperiorInferior2());
         formularios.setSuperiorInferior3(dto.getSuperiorInferior3());
@@ -66,6 +68,7 @@ public class FormularioController{
     public List<Formulario> obterTodos(){
         return repository.findAll();
     }
+
     @GetMapping("{ferramentalDeFormacao}")
     @ApiOperation("Esse método retorna um formulario consultando pelo id.")
     public Optional<Formulario> acharPorFerramental( @PathVariable String ferramentalDeFormacao ){

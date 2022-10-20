@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 @Getter
@@ -22,6 +23,8 @@ public class FormularioDto {
     private String fabricanteDePVC;
 
     private int quantidadeDoBlister;
+
+    private int velocidadeRPM;
 
     private int superiorInferior1;
 

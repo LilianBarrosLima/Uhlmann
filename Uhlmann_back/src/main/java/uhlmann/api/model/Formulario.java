@@ -39,7 +39,10 @@ public class Formulario {
     
     @Column(length = 2)
     private int quantidadeDoBlister;
-    
+
+    @Column(length = 5)
+    private int velocidadeRPM;
+
     @Column(length = 3)
     private int superiorInferior1; 
     
