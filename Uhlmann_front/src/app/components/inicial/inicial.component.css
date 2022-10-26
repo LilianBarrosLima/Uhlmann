@@ -1,0 +1,15 @@
+.pagina-inicial{
+    --color-page-background-color-page: #ffffff; /*Cor fundo da página*/
+}
+
+.slides {
+    --color-slide-background-color-active-circle: #000000; /*Circulo ativo do slide*/
+    --color-slide-background-color-circle:#3a76a752; /*Circulo inativo do slide*/
+    --color-slide-border-arrow: #000000; /*Cor da seta do círculo mudança slide*/
+}
+
+.navbarcss{
+    --color-navbar-color: rgb(255, 255, 255);
+    --color-navbar-action-color-content: rgb(29, 107, 172);
+    --color-navbar-item-color: rgb(29, 107, 172);   
+}

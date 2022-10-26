@@ -1,0 +1,40 @@
+<div class="pagina-inicial">
+    <po-navbar class="navbarcss"
+      [p-icon-actions]="icones_actions"
+      [p-items]="items_actions"
+      p-logo="./assets/logo.PNG"
+      p-shadow="true">
+    </po-navbar>
+
+    <po-page-default p-title="Cadastro de Usuários" p-show-notification="false">
+        <div class="cadastro-usuario">
+            <po-divider p-label="Dados do usuário">
+            </po-divider>
+
+            <div class="nome-usuario">
+                <po-input class="po-md-12" p-label="Nome Completo" [(ngModel)]="nome_usuario" p-maxlength="60">
+                </po-input>
+            </div>
+
+            <div class="login-usuario">
+                <po-input class="po-md-6" p-label="Login" [(ngModel)]="login_usuario" p-maxlength="20"></po-input>
+            </div>
+
+            <div class="senha-usuario">
+                <po-input class="po-md-6" p-label="Senha" [(ngModel)]="senha_usuario" p-maxlength="15"></po-input>
+            </div>
+
+            <div class="email-usuario">
+                <po-email class="po-md-12" p-label="E-mail" [(ngModel)]="email_usuario" p-maxlength="45"></po-email>
+            </div>
+
+            <div class="ok-pro-cancel">
+                <po-button class="cancelar" p-label="Cancelar" p-danger="true" [routerLink]="['/menu']"></po-button>
+                <po-button class="salvar" p-label="Salvar e continuar" p-kind="secondary" (p-click)="salvarcontinuar()"></po-button>
+                <po-button class="confirmar" p-label="Confirmar" p-kind="primary" (p-click)="confirmar()"></po-button>
+            </div>
+        </div>
+
+    </po-page-default>
+    
+</div>

@@ -1,0 +1,61 @@
+.widget {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../assets/573361.png');
+}
+
+.login {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    --color-field-icon-color: rgb(29, 107, 172);
+}
+
+.passwd {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    --color-field-icon-color: rgb(29, 107, 172);
+}
+
+.send {
+    width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    --color-button-background-color: rgb(29, 107, 172);
+    --color-button-color: rgb(255, 255, 255);
+    --color-button-border: rgb(0, 0, 0);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .widget {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .passwd{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}

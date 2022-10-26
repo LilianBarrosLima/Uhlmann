@@ -1,0 +1,14 @@
+.pagina-inicial{
+    --color-page-background-color-page: #ffffff; /*Cor fundo da página*/
+}
+
+.navbarcss{
+    --color-navbar-color: rgb(255, 255, 255);
+    --color-navbar-action-color-content: rgb(29, 107, 172);
+    --color-navbar-item-color: rgb(29, 107, 172);   
+}
+
+.po-table{
+    --color-table-color-header: #000000;
+    --color-table-box-shadow-header: #000000;
+}

@@ -1,0 +1,94 @@
+<div class="pagina-inicial">
+  <po-navbar class="navbarcss"
+    [p-icon-actions]="icones_actions"
+    [p-items]="items_actions"
+    p-logo="./assets/logo.PNG"
+    p-shadow="true">
+  </po-navbar>
+
+  <po-page-default p-title="Cadastro de Formulário" p-show-notification="false">
+
+    <div class="cadastro formulario">
+      <po-divider p-label="Dados Gerais">
+      </po-divider>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Ferramental da formação" [(ngModel)]="ferramental_formacao"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-md-6" p-label="Fabricante do pvc" [(ngModel)]="fabricante_pvc"></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Quant. Do blister" [(ngModel)]="quant_blister"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Velocidade RPM" [(ngModel)]="velocidade_rpm"></po-number>
+      </div>
+
+      <po-divider p-label="Temperatura das Placas">
+      </po-divider>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="1 Superior/Inferior" [(ngModel)]="superior_inferior1"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="2 Superior/Inferior" [(ngModel)]="superior_inferior2"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="3 Superior/Inferior" [(ngModel)]="superior_inferior3"></po-number>
+      </div>
+
+      <po-divider p-label="Formação">
+      </po-divider>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Pré-aquecimento das placas" [(ngModel)]="pre_aquecimento_placas"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Retardo de abertura das placas" [(ngModel)]="retardo_placas"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Tempo de Formação" [(ngModel)]="tempo_formacao"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Offset do ar de formação" [(ngModel)]="offset_formacao"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Profundidade da bolsa" [(ngModel)]="profundidade_bolsa"></po-number>
+      </div>
+
+      <po-divider p-label="Avanço">
+      </po-divider>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Tempo de transporte" [(ngModel)]="tempo_transporte"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="Offset de correção" [(ngModel)]="offset_correcao"></po-number>
+      </div>
+
+      <div class="po-row">
+        <po-number class="po-md-6" p-label="ID Usuário" p-disabled="true" [(ngModel)]="usuario_formulario"></po-number>
+      </div>  
+
+      <po-textarea class="po-md-6" name="problemas-recorrentes" p-label="Problemas Recorrentes" [(ngModel)]="problemas"></po-textarea>
+
+      <div class="ok-pro-cancel">
+        <po-button class="cancelar" p-label="Cancelar" p-danger="true" [routerLink]="['/menu']"></po-button>
+        <po-button class="salvar" p-label="Salvar e continuar" p-kind="secondary" (p-click)="salvarcontinuar()" ></po-button>
+        <po-button class="confirmar" p-label="Confirmar" p-kind="primary" (p-click)="confirmar()"></po-button>
+      </div>
+
+    </div>
+  </po-page-default>
+</div>

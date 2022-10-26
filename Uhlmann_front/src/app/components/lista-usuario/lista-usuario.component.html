@@ -1,0 +1,34 @@
+<div class="pagina-inicial">
+    <po-navbar class="navbarcss"
+      [p-icon-actions]="icones_actions"
+      [p-items]="items_actions"
+      p-logo="./assets/logo.PNG"
+      p-shadow="true">
+    </po-navbar>
+
+    <po-page-default p-title="Lista de Usuários">
+        <po-table class="po-table"
+          p-container="shadow"    
+          [p-columns]="colunas"    
+          [p-items]="dados"    
+          [p-sort]="true"    
+          [p-actions]="actions">    
+        </po-table>
+    </po-page-default>
+
+    <po-modal #modal p-title="Alterar Usuário" [p-primary-action]="alterar" [p-secondary-action]="fechar"> 
+        <div class="cadastro-usuario">
+            <po-number class="po-md-2" p-label="ID" [(ngModel)]="id_usuario" p-maxlength="10" p-disabled="true"></po-number>
+            <po-input class="po-md-10" p-label="Nome Completo" [(ngModel)]="nome_usuario" p-maxlength="60"></po-input>
+            <po-input class="po-md-6" p-label="Login" [(ngModel)]="login_usuario" p-maxlength="20" p-disabled="true"></po-input>
+            <po-input class="po-md-6" p-label="Senha" [(ngModel)]="senha_usuario" p-maxlength="15"></po-input>
+            <po-email class="po-md-12" p-label="E-mail" [(ngModel)]="email_usuario" p-maxlength="45"></po-email>            
+        </div>
+
+        <po-modal-footer [p-disabled-align]="false">
+            <po-button p-danger="true" p-label="Fechar" (p-click)="closeModal()"> </po-button>
+            <po-button p-kind="primary" p-label="Salvar" (p-click)="salvarAlteracao()"> </po-button>
+        </po-modal-footer>
+    </po-modal>
+
+</div>

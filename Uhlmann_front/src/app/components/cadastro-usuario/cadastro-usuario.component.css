@@ -1,0 +1,27 @@
+.pagina-inicial{
+    --color-page-background-color-page: #ffffff; /*Cor fundo da página*/
+}
+
+.navbarcss{
+    --color-navbar-color: rgb(255, 255, 255);
+    --color-navbar-action-color-content: rgb(29, 107, 172);
+    --color-navbar-item-color: rgb(29, 107, 172);   
+}
+
+.ok-pro-cancel {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-top: 240px;
+} 
+
+.confirmar{
+    --color-button-border-primary: black;
+}
+
+.salvar{
+    margin: 0px 10px 0px 10px;
+    --color-button-background-color: white;
+    --color-button-color: black;
+    --color-button-border: black;
+}

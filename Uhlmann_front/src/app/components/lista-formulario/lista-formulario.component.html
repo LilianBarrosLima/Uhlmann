@@ -1,0 +1,75 @@
+<div class="pagina-inicial">
+  <po-navbar class="navbarcss"
+    [p-icon-actions]="icones_actions"
+    [p-items]="items_actions"
+    p-logo="./assets/logo.PNG"
+    p-shadow="true">
+  </po-navbar>
+
+    <po-page-default p-title="Lista de Formulários">
+<!--       <div class="pesquisar-ferramental">
+        <po-input class="po-md-2" p-placeholder="Buscar por ferramental"></po-input>        
+      </div>
+
+      <div class="botao-pesquisar">
+        <po-button class="pesquisar" p-icon="po-icon-search" p-kind="secondary"  (p-click)="pesquisar()"></po-button>
+      </div> -->
+
+        <po-table class="po-table"
+          p-container="shadow"    
+          [p-columns]="colunas"    
+          [p-items]="dados"    
+          [p-sort]="true"
+          [p-actions]="actions">    
+        </po-table>
+    </po-page-default>
+
+     <po-modal #modal p-title="Alterar Formulário" [p-primary-action]="alterar" [p-secondary-action]="fechar"> 
+      <div class="cadastro-formulario">
+
+          <po-divider p-label="Dados Gerais"></po-divider>
+          <po-number class="po-md-6" p-label="Ferramental da formação" [(ngModel)]="ferramental_formacao" p-disabled="true"></po-number>
+          <po-input class="po-md-6" p-label="Fabricante do pvc" [(ngModel)]="fabricante_pvc" p-disabled="true"></po-input>
+          <po-number class="po-md-6" p-label="Quant. Do blister" [(ngModel)]="quant_blister" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Velocidade RPM" [(ngModel)]="velocidade_rpm" p-disabled="true"></po-number>
+              
+          <po-divider p-label="Temperatura das Placas"></po-divider>
+          <po-number class="po-md-6" p-label="1 Superior/Inferior" [(ngModel)]="superior_inferior1" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="superior_inferior1" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="2 Superior/Inferior" [(ngModel)]="superior_inferior2" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="superior_inferior2" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="3 Superior/Inferior" [(ngModel)]="superior_inferior3" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="superior_inferior3" p-disabled="false"></po-number>
+
+          <po-divider p-label="Formação"></po-divider>
+          <po-number class="po-md-6" p-label="Pré-aquecimento das placas" [(ngModel)]="pre_aquecimento_placas" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="pre_aquecimento_placas" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="Retardo de abertura das placas" [(ngModel)]="retardo_placas" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="retardo_placas" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="Tempo de Formação" [(ngModel)]="tempo_formacao" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="tempo_formacao" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="Offset do ar de formação" [(ngModel)]="offset_formacao" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="offset_formacao" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="Profundidade da bolsa" [(ngModel)]="profundidade_bolsa" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="profundidade_bolsa" p-disabled="false"></po-number>
+
+          <po-divider p-label="Avanço"></po-divider>
+          <po-number class="po-md-6" p-label="Tempo de transporte" [(ngModel)]="tempo_transporte" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="tempo_transporte" p-disabled="false"></po-number>
+          <po-number class="po-md-6" p-label="Offset de correção" [(ngModel)]="offset_correcao" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="Alterado" [(ngModel)]="offset_correcao" p-disabled="false"></po-number>
+
+          <po-number class="po-md-6" p-label="ID Usuário" [(ngModel)]="usuario_formulario" p-disabled="true"></po-number>
+          <po-number class="po-md-6" p-label="ID Usuário" [(ngModel)]="usuario_formulario" p-disabled="true"></po-number>
+
+          <po-textarea class="po-md-12" p-label="Problemas Recorrentes" [(ngModel)]="problemas" p-disabled="false"></po-textarea>
+          
+      </div>
+
+      <po-modal-footer [p-disabled-align]="false">
+          <po-button p-danger="true" p-label="Fechar" (p-click)="closeModal()"> </po-button>
+          <po-button p-kind="primary" p-label="Salvar" (p-click)="salvarAlteracao()"> </po-button>
+      </po-modal-footer>
+    </po-modal> 
+
+</div>

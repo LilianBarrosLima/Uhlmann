@@ -1,0 +1,18 @@
+<div class="pagina-inicial">
+  <po-navbar class="navbarcss"
+    [p-icon-actions]="icones_actions"
+    [p-items]="items_actions"
+    p-logo="./assets/logo.PNG"
+    p-shadow="true">
+  </po-navbar>
+
+  <po-page-default p-title="Projeto Uhlmann" p-show-notification="false">
+    <po-info p-label="Apresentação" p-value="A idéia do projeto surgiu a partir da necessidade identificada pelo operador da Máquina da UHLMANN - BEC700 em padronizar as configurações para alcançar uma melhor produtividade dentro da Industria Farmacêutica.
+    A Máquina UHLMANN-BEC700 tem como finalidade a produção sistêmica e automática de embalagens para a Industria Farmacêutica.
+    Hoje a máquina não tem a função de salvar as configurações na produção das embalagens, ou seja, tudo isso é controlado de forma manual e através de formulários/ficheiros físicos.
+    Nosso projeto irá catalogar e padronizar todos esses formulários/ficheiros dentro de um “App” para facilitar e agilizar a busca das informações necessárias na troca da produção de uma embalagem por outra.
+    Nosso software, além de ter a função de guardar os dados, irá permitir a rastreabilidade das funções executadas pelos usuários através dos logs que serão registrados no banco de dados, sendo assim, será possível identificar quem alterou e quais dados das configurações foram atualizados."> </po-info>
+    <po-slide class="slides" [p-slides]="['/assets/bec300.png', '/assets/bec500.png', '/assets/bec700.png']"> </po-slide>
+  </po-page-default>
+
+</div>

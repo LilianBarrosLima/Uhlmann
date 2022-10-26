@@ -14,10 +14,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/formularios/**", "/usuarios/**").authenticated()
-                .antMatchers( "/login/**", "/h2-console/**", "/api/auth/**", "/oauth/token","/api/test/**").permitAll()
-                .antMatchers("/swagger-ui.html", "/swagger-resources/*", "*.html", "/api/v1/swagger.json").permitAll() // permit all the routers swagger
-                //.antMatchers(HttpMethod.POST,"/usuarios").permitAll()
-                //.antMatchers("/usuarios**").hasRole("ADMIN").anyRequest().denyAll()
+                .antMatchers( "/h2-console/**", "/api/auth/**", "/oauth/token","/api/test/**").permitAll()
+                .antMatchers("/swagger-ui.html", "/swagger-resources/*", "*.html", "/api/v1/swagger.json").permitAll()
+                 //.antMatchers("/usuarios**").hasRole("ADMIN")
+                .anyRequest().denyAll()
                 .and().formLogin().loginPage("/login").permitAll();
 
     }
