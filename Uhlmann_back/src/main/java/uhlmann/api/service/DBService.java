@@ -17,6 +17,4 @@ public class DBService {
         usuarioRepository.saveAll(Arrays.asList(user));
 
     }
-
-
 }

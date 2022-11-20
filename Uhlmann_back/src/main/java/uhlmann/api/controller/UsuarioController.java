@@ -32,7 +32,7 @@ public class UsuarioController {
 
     @GetMapping("{id}")
     @ApiOperation("Esse método exibe um usuario pelo id.")
-    public Usuario acharPorId( @PathVariable Integer id ){
+    public Usuario acharPorId(@PathVariable Integer id ){
         return repository
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado") );

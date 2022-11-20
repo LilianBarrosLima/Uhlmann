@@ -16,7 +16,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers("/formularios/**", "/usuarios/**").authenticated()
                 .antMatchers( "/h2-console/**", "/api/auth/**", "/oauth/token","/api/test/**").permitAll()
                 .antMatchers("/swagger-ui.html", "/swagger-resources/*", "*.html", "/api/v1/swagger.json").permitAll()
-                 //.antMatchers("/usuarios**").hasRole("ADMIN")
                 .anyRequest().denyAll()
                 .and().formLogin().loginPage("/login").permitAll();
 

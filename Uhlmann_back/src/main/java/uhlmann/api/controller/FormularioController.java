@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.Column;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;

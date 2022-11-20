@@ -26,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
          .userDetailsService(usuarioService)
           .passwordEncoder(passwordEncoder());
-         //.passwordEncoder(new BCryptPasswordEncoder());
     }
     @Override
     public void configure(WebSecurity web) throws Exception { //libera o swagger
@@ -50,6 +49,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
-        //return new BCryptPasswordEncoder();
     }
 }

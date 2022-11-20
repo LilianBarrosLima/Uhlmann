@@ -34,8 +34,4 @@ public class Usuario {
     @Column(name = "pass")
     @NotEmpty(message = "{campo.senha.obrigatorio}")
     private String password;
-
-    //@Transient
-    //private Formulario formulario;
-
 }

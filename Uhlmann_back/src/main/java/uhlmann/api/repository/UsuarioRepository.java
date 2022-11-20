@@ -9,7 +9,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     Optional<Usuario> findByUsername(String username);
 
-    boolean existsByUsername(String username); //the same as select count(*) > 0 from usuario where username = :login
+    boolean existsByUsername(String username);
 
     Optional<Usuario> findById(Integer id);
 }

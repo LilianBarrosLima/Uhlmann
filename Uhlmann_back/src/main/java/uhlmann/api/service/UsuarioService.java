@@ -35,7 +35,6 @@ public class UsuarioService implements UserDetailsService {
                 .username(usuario.getUsername())
                 .password(usuario.getPassword())
                 .roles("USER")
-                .build()
-                ;
+                .build();
     }
 }
