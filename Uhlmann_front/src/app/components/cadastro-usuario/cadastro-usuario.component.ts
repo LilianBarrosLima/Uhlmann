@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PoMenuItem, PoNavbarIconAction, PoNavbarItem, PoSelectOption } from '@po-ui/ng-components';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { PoNavbarIconAction, PoNavbarItem } from '@po-ui/ng-components';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PoNotificationService } from '@po-ui/ng-components'
 
 @Component({
@@ -11,9 +11,9 @@ import { PoNotificationService } from '@po-ui/ng-components'
 })
 export class CadastroUsuarioComponent implements OnInit {
 
-  //urlApi: string = 'http://localhost:3000/usuarios' 
   urlApi: string = 'http://localhost:8080/usuarios' 
   token: string = sessionStorage.getItem('token') || ''
+  usuariologado: string = sessionStorage.getItem('usuariolog') || ''
 
   readonly icones_actions: Array<PoNavbarIconAction> = [
     { label: 'Logout', icon: 'po-icon-exit', action: this.logout.bind(this), tooltip: 'Sair' },
@@ -38,6 +38,9 @@ export class CadastroUsuarioComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
+    if (this.token === ''){
+      this.router.navigate(['/pagina-bloqueada'])
+    }
   }
 
   private routeMenu() {
@@ -80,8 +83,6 @@ export class CadastroUsuarioComponent implements OnInit {
       "email": this.email_usuario
     }
 
-    console.log(parametros)
-
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Content-Type", "application/json")
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
@@ -104,8 +105,6 @@ export class CadastroUsuarioComponent implements OnInit {
       "password": this.senha_usuario,
       "email": this.email_usuario
     }
-
-    console.log(parametros)
 
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Content-Type", "application/json")

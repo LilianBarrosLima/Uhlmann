@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoMenuItem, PoNavbarIconAction, PoNavbarItem, PoSelectOption } from '@po-ui/ng-components';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { PoNavbarIconAction, PoNavbarItem } from '@po-ui/ng-components';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PoTableAction, PoTableColumn, PoNotificationService } from '@po-ui/ng-components';
 import { Observable } from 'rxjs';
-import { PoModalModule } from '@po-ui/ng-components';
 import { PoModalAction } from '@po-ui/ng-components';
 import { PoModalComponent } from '@po-ui/ng-components';
 
@@ -17,9 +16,10 @@ export class ListaFormularioComponent implements OnInit {
   @ViewChild(PoModalComponent, { static: true })
   poModal!: PoModalComponent; 
 
-  //url = 'http://localhost:3000/formularios';
   url = 'http://localhost:8080/formularios'; 
+  
   token: string = sessionStorage.getItem('token') || ''
+  login: string = sessionStorage.getItem('usuariologado') || ''
 
   readonly icones_actions: Array<PoNavbarIconAction> = [
     { label: 'Logout', icon: 'po-icon-exit', action: this.logout.bind(this), tooltip: 'Sair' },
@@ -32,8 +32,6 @@ export class ListaFormularioComponent implements OnInit {
     { label: 'Cadastro formulário',  action: this.routeCadastroFormulario.bind(this) },
     { label: 'Lista de formulários', action: this.routeListaFormulario.bind(this) }
   ];
-
-
 
   ferramental_formacao: number = 0
   fabricante_pvc: string = ''
@@ -85,6 +83,9 @@ export class ListaFormularioComponent implements OnInit {
     private poNotification: PoNotificationService) { }
 
   ngOnInit(): void {
+    if (this.token === ''){
+      this.router.navigate(['/pagina-bloqueada'])
+    }
     this.updateCustomerList();
     this.colunas = this.getColumns();
   }
@@ -94,11 +95,19 @@ export class ListaFormularioComponent implements OnInit {
   }
 
   private routeCadastroUsuario() {
-    this.router.navigate(['/cadastro-usuario'])
+    if (this.login === 'Davi'){
+      this.router.navigate(['/cadastro-usuario'])
+    }else{
+      this.poNotification.error('Somente usuário Administrador possui essa permissão');  
+    }
   }
 
   private routeListaUsuario() {
-    this.router.navigate(['/lista-usuario'])
+    if (this.login === 'Davi'){
+      this.router.navigate(['/lista-usuario'])
+    }else{
+      this.poNotification.error('Somente usuário Administrador possui essa permissão');  
+    }
   }
 
   private routeCadastroFormulario() {
@@ -117,12 +126,10 @@ export class ListaFormularioComponent implements OnInit {
   updateCustomerList(): void {
     this.getDados().subscribe(response => {
       this.dados = response;
-      console.log(response)
     });
   }
 
   getDados(): Observable<any> {
-    //return this.http.get(this.url);
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
     return this.http.get(this.url, {
@@ -150,9 +157,6 @@ export class ListaFormularioComponent implements OnInit {
     ];
   }
 
-/*   pesquisar(){ 
-  } */
-
   deletarFormulario(row: any){
     const ferramentalId = row.ferramentalDeFormacao;
     this.deletarCustomer(ferramentalId)
@@ -164,7 +168,6 @@ export class ListaFormularioComponent implements OnInit {
   }
 
   deletarCustomer(ferramentalId: string) {
-		//return this.http.delete(this.url + `/${ferramentalId}`);
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
     return this.http.delete(this.url + `/${ferramentalId}`, {
@@ -216,8 +219,6 @@ export class ListaFormularioComponent implements OnInit {
       "idUsuario": this.usuario_formulario,
       "problemas": this.problemas,
     }
-
-    console.log(parametros)
 
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Content-Type", "application/json")

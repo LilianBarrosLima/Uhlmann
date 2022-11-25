@@ -15,6 +15,7 @@ import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaUsuarioComponent } from './components/lista-usuario/lista-usuario.component';
 import { ListaFormularioComponent } from './components/lista-formulario/lista-formulario.component';
+import { PaginaBloqueadaComponent } from './components/pagina-bloqueada/pagina-bloqueada.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListaFormularioComponent } from './components/lista-formulario/lista-fo
     CadastroComponent,
     CadastroUsuarioComponent,
     ListaUsuarioComponent,
-    ListaFormularioComponent
+    ListaFormularioComponent,
+    PaginaBloqueadaComponent,
   ],
   imports: [
     BrowserModule,

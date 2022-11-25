@@ -6,6 +6,7 @@ import { InicialComponent } from './components/inicial/inicial.component';
 import { ListaFormularioComponent } from './components/lista-formulario/lista-formulario.component';
 import { ListaUsuarioComponent } from './components/lista-usuario/lista-usuario.component';
 import { LoginComponent } from './components/login/login.component';
+import { PaginaBloqueadaComponent } from './components/pagina-bloqueada/pagina-bloqueada.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'cadastro-formulario', component: CadastroComponent },
   { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
   { path: 'lista-usuario', component: ListaUsuarioComponent },
-  { path: 'lista-formulario', component: ListaFormularioComponent }
+  { path: 'lista-formulario', component: ListaFormularioComponent },
+  { path: 'pagina-bloqueada', component: PaginaBloqueadaComponent}
 ];
 
 @NgModule({

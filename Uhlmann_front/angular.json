@@ -23,8 +23,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**\/*",
+                "input": "node_modules/@po-ui/style/images",
+                "output": "assets/images"
+              }
             ],
             "styles": [
               "node_modules/@po-ui/style/css/po-theme-default-variables.min.css",
@@ -92,8 +97,13 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**\/*",
+                "input": "node_modules/@po-ui/style/images",
+                "output": "assets/images"
+              }
             ],
             "styles": [
               "node_modules/@po-ui/style/css/po-theme-default-variables.min.css",
@@ -106,8 +116,5 @@
       }
     }
   },
-  "defaultProject": "impacta",
-  "cli": {
-    "analytics": "59f60fd2-4323-4555-b769-42c995710613"
-  }
+  "defaultProject": "impacta"
 }

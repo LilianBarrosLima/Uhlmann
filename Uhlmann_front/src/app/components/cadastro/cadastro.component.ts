@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PoMenuItem, PoNavbarIconAction, PoNavbarItem, PoNotificationService } from '@po-ui/ng-components';
+import { PoNavbarIconAction, PoNavbarItem, PoNotificationService } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,9 +10,9 @@ import { PoMenuItem, PoNavbarIconAction, PoNavbarItem, PoNotificationService } f
 })
 export class CadastroComponent implements OnInit {
 
-  //urlApi: string = 'http://localhost:3000/formularios' 
   urlApi: string = 'http://localhost:8080/formularios' 
   token: string = sessionStorage.getItem('token') || ''
+  login: string = sessionStorage.getItem('usuariologado') || ''
 
   readonly icones_actions: Array<PoNavbarIconAction> = [
     { label: 'Logout', icon: 'po-icon-exit', action: this.logout.bind(this), tooltip: 'Sair' },
@@ -53,7 +53,9 @@ export class CadastroComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
-/*     this.carregaUsuario() */
+    if (this.token === ''){
+      this.router.navigate(['/pagina-bloqueada'])
+    }
   }
 
   private routeMenu() {
@@ -61,11 +63,19 @@ export class CadastroComponent implements OnInit {
   }
 
   private routeCadastroUsuario() {
-    this.router.navigate(['/cadastro-usuario'])
+    if (this.login === 'Davi'){
+      this.router.navigate(['/cadastro-usuario'])
+    }else{
+      this.poNotification.error('Somente usuário Administrador possui essa permissão');  
+    }
   }
 
   private routeListaUsuario() {
-    this.router.navigate(['/lista-usuario'])
+    if (this.login === 'Davi'){
+      this.router.navigate(['/lista-usuario'])
+    }else{
+      this.poNotification.error('Somente usuário Administrador possui essa permissão');  
+    }
   }
 
   private routeCadastroFormulario() {
@@ -80,13 +90,6 @@ export class CadastroComponent implements OnInit {
     sessionStorage.clear()
     this.router.navigate(['/login'])
   }
-
-/*   carregaUsuario() {
-    if(this.menu_panel !=  '') {
-      this.usuario_formulario = this.menu_panel 
-      this.usuario_formulario = 1
-    }
-  } */
 
   limpar(){
     this.ferramental_formacao = 0
@@ -130,8 +133,6 @@ export class CadastroComponent implements OnInit {
       "problemas": this.problemas
     }
 
-    console.log(parametros)
-
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Content-Type", "application/json")
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
@@ -166,8 +167,6 @@ export class CadastroComponent implements OnInit {
       "idUsuario": this.usuario_formulario,
       "problemas": this.problemas
     }
-
-    console.log(parametros)
 
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Content-Type", "application/json")

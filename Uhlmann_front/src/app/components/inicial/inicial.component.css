@@ -1,11 +1,11 @@
 .pagina-inicial{
-    --color-page-background-color-page: #ffffff; /*Cor fundo da página*/
+    --color-page-background-color-page: #ffffff; 
 }
 
 .slides {
-    --color-slide-background-color-active-circle: #000000; /*Circulo ativo do slide*/
-    --color-slide-background-color-circle:#3a76a752; /*Circulo inativo do slide*/
-    --color-slide-border-arrow: #000000; /*Cor da seta do círculo mudança slide*/
+    --color-slide-background-color-active-circle: #000000; 
+    --color-slide-background-color-circle:#3a76a752; 
+    --color-slide-border-arrow: #000000; 
 }
 
 .navbarcss{

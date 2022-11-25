@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoMenuItem, PoNavbarIconAction, PoNavbarItem, PoSelectOption } from '@po-ui/ng-components';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { PoNavbarIconAction, PoNavbarItem } from '@po-ui/ng-components';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PoTableAction, PoTableColumn, PoNotificationService } from '@po-ui/ng-components';
 import { Observable } from 'rxjs';
-import { PoModalModule } from '@po-ui/ng-components';
 import { PoModalAction } from '@po-ui/ng-components';
 import { PoModalComponent } from '@po-ui/ng-components';
 
@@ -17,7 +16,6 @@ export class ListaUsuarioComponent implements OnInit {
   @ViewChild(PoModalComponent, { static: true })
   poModal!: PoModalComponent;
 
-  //url = 'http://localhost:3000/usuarios'; 
   url = 'http://localhost:8080/usuarios'; 
   token: string = sessionStorage.getItem('token') || ''
 
@@ -67,6 +65,9 @@ export class ListaUsuarioComponent implements OnInit {
     private poNotification: PoNotificationService) { }
 
   ngOnInit(): void {
+    if (this.token === ''){
+      this.router.navigate(['/pagina-bloqueada'])
+    }
     this.updateCustomerList();
     this.colunas = this.getColumns();
   }
@@ -99,12 +100,10 @@ export class ListaUsuarioComponent implements OnInit {
   updateCustomerList(): void {
       this.getDados().subscribe(response => {
       this.dados = response;
-      console.log(response)
     });
   }
 
   getDados(): Observable<any> {
-/*     return this.http.get(this.url); */
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
     return this.http.get(this.url, {
@@ -132,7 +131,6 @@ export class ListaUsuarioComponent implements OnInit {
   }
 
   deletarCustomer(usuarioId: string) {
-		//return this.http.delete(this.url + `/${usuarioId}`);
     let headers_send = new HttpHeaders()
     headers_send = headers_send.append("Authorization", "Bearer " + this.token) 
     return this.http.delete(this.url + `/${usuarioId}`, {
@@ -162,8 +160,6 @@ export class ListaUsuarioComponent implements OnInit {
       "password": this.senha_usuario,
       "email": this.email_usuario
     }
-
-    console.log(parametros)
 
     let headers_send = new HttpHeaders()
     
